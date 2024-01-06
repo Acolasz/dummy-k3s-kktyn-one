@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>hu.kukutyin.dummy.k3s</groupId>
+		<artifactId>dummy-k3s-kktyn-one</artifactId>
+		<version>${project.version}</version>
+	</parent>
+
+	<artifactId>dummy-k3s-kktyn-one-interface</artifactId>
+	<packaging>jar</packaging>
+
+	<properties>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-annotations</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.openapitools</groupId>
+			<artifactId>jackson-databind-nullable</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.openapitools</groupId>
+				<artifactId>openapi-generator-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<skipIfSpecIsUnchanged>false</skipIfSpecIsUnchanged>
+							<generatorName>spring</generatorName>
+							<library>spring-boot</library>
+							<inputSpec>${openapi.yaml.location}</inputSpec>
+							<output>${project.build.directory}/generated-sources/openapi</output>
+							<apiPackage>${openapi.base.package}.api</apiPackage>
+							<modelPackage>${openapi.base.package}.domain</modelPackage>
+							<generateApis>false</generateApis>
+							<generateApiDocumentation>false</generateApiDocumentation>
+							<generateApiTests>false</generateApiTests>
+							<generateModels>true</generateModels>
+							<generateModelDocumentation>false</generateModelDocumentation>
+							<generateModelTests>false</generateModelTests>
+							<generateSupportingFiles>false</generateSupportingFiles>
+							<configHelp>false</configHelp>
+							<configOptions>
+								<sourceFolder>src/main/java</sourceFolder>
+								<java8>false</java8>
+								<dateLibrary>java8-localdatetime</dateLibrary>
+								<useTags>true</useTags>
+								<configPackage>${openapi.base.package}.appconfig</configPackage>
+								<basePackage>${openapi.base.package}</basePackage>
+								<interfaceOnly>false</interfaceOnly>
+								<delegatePattern>true</delegatePattern>
+								<implicitHeaders>true</implicitHeaders>
+								<serializableModel>true</serializableModel>
+							</configOptions>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
