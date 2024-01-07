@@ -1,0 +1,12 @@
+logging:
+  level:
+    root: WARN
+    hu.kukutyin.dummy.service.app: TRACE
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+
+  jpa:
+    open-in-view: false

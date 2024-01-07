@@ -11,6 +11,7 @@
 
 	<modules>
 		<module>dummy-k3s-kktyn-one-interface</module>
+		<module>dummy-k3s-kktyn-one-service</module>
 	</modules>
 
 	<properties>
@@ -144,6 +145,11 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>${maven.surefire.plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<version>${spring.boot.parent.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.jacoco</groupId>
