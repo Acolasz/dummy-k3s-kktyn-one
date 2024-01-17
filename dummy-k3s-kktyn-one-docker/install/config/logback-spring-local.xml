@@ -24,7 +24,7 @@
 		<appender-ref ref="RollingFile"/>
 		<appender-ref ref="Console"/>
 	</root>
-	<logger name="hu.kukutyin.dummy.service.app" level="debug" additivity="false">
+	<logger name="hu.kukutyin.dummy.k3s.kktyn.one.service.app" level="debug" additivity="false">
 		<appender-ref ref="RollingFile"/>
 		<appender-ref ref="Console"/>
 	</logger>
