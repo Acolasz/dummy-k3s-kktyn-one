@@ -9,13 +9,13 @@ services:
     container_name: ${SERVICE_CONTAINER_NAME}-local-1
     restart: unless-stopped
     ports:
-      - "${SERVICE_PORT_SERVICE}:9000"
+      - "9000:${SERVICE_PORT_SERVICE}"
       - "${SERVICE_PORT_DEBUG}:${SERVICE_PORT_DEBUG}"
     volumes:
       - kktyn-one-data:/logs
     environment:
-      - PORT=${SERVICE_PORT_SERVICE}
-      - DEBUG_PORT=${SERVICE_PORT_DEBUG}
+      - SERVICE_PORT_SERVICE=${SERVICE_PORT_SERVICE}
+      - SERVICE_PORT_DEBUG=${SERVICE_PORT_DEBUG}
     networks:
       - dummy_network
     depends_on:

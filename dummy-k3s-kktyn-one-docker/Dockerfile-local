@@ -8,7 +8,6 @@ ENV SPRING_CONFIG_LOCATION=${SPRING_APP_LOCATION}/config
 
 ADD ${APP_PATH}/${APP_NAME} ${SPRING_APP_LOCATION}/service.jar
 ADD ${CONFIG_PATH}/application-local.yml ${SPRING_CONFIG_LOCATION}/application.yml
-ADD ${CONFIG_PATH}/application-local.properties ${SPRING_CONFIG_LOCATION}/application.properties
 ADD ${CONFIG_PATH}/logback-spring-local.xml ${SPRING_CONFIG_LOCATION}/logback-spring.xml
 ADD ${CONFIG_PATH}/entrypoint-local.sh /entrypoint.sh
 
